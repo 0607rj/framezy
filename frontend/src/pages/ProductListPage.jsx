@@ -14,7 +14,7 @@ function ProductListPage() {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/api/products?category=${categoryName}&subcategory=${subcategoryName}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/products?category=${categoryName}&subcategory=${subcategoryName}`);
         const data = await response.json();
         setProducts(data.data || []);
       } catch (error) {
