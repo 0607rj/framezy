@@ -17,12 +17,6 @@ function Header() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-xl' : 'bg-white/95 backdrop-blur-md'}`}>
-      {/* Top Promo Bar */}
-      <div className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white py-2.5 text-center text-sm font-medium relative overflow-hidden animate-gradient">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-        <p className="relative z-10">🎉 Free Shipping on orders above ₹500! ✨</p>
-      </div>
-
       {/* Main Navigation */}
       <nav className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
