@@ -38,50 +38,56 @@ function OrderSuccess() {
           <p className="text-gray-500">We'll contact you soon to confirm delivery details.</p>
         </div>
 
-        {/* IMPORTANT: Save Your Order ID - Prominent Section */}
-        <div className="bg-gradient-to-r from-yellow-100 via-orange-100 to-red-100 rounded-3xl shadow-2xl p-8 mb-8 border-4 border-orange-400 animate-pulse-slow">
-          <div className="text-center mb-4">
-            <p className="text-2xl font-bold text-orange-800 mb-2">⚠️ IMPORTANT - SAVE THIS ORDER ID ⚠️</p>
-            <p className="text-gray-700 font-semibold">You'll need this to track your order!</p>
+        {/* IMPORTANT: Save Your Order ID - Elegant Section */}
+        <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-2xl shadow-lg p-6 md:p-8 mb-8 border border-purple-200">
+          <div className="text-center mb-6">
+            <div className="inline-block bg-purple-100 rounded-full px-4 py-2 mb-3">
+              <p className="text-sm font-semibold text-purple-700">📋 Important Information</p>
+            </div>
+            <p className="text-gray-600 text-sm">Save this Order ID to track your order anytime</p>
           </div>
           
-          <div className="bg-white rounded-2xl p-6 border-3 border-orange-300">
-            <p className="text-center text-gray-600 font-semibold mb-3">Your Order ID</p>
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <p className="text-4xl md:text-5xl font-bold text-gray-900 font-mono bg-yellow-100 px-8 py-4 rounded-xl border-2 border-yellow-400">
-                {orderId}
-              </p>
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+            <p className="text-center text-gray-500 text-sm mb-3">Your Order ID</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 px-6 py-3 rounded-lg border border-purple-200">
+                <p className="text-xl md:text-2xl font-mono text-gray-700 tracking-wide">
+                  {orderId}
+                </p>
+              </div>
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(orderId);
-                  alert('Order ID copied to clipboard!');
+                  alert('✓ Order ID copied!');
                 }}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-4 rounded-xl font-bold transition-all shadow-lg"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-5 py-2.5 rounded-lg font-medium transition-all shadow-sm hover:shadow-md text-sm flex items-center gap-2"
                 title="Copy Order ID"
               >
-                📋 Copy
+                <span>📋</span>
+                <span>Copy ID</span>
               </button>
             </div>
-            <div className="bg-orange-50 rounded-xl p-4 border-2 border-orange-200">
-              <p className="text-center text-orange-800 font-bold text-lg mb-2">📝 How to Track Your Order:</p>
-              <ol className="text-gray-700 space-y-2 text-left max-w-2xl mx-auto">
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-orange-600">1.</span>
-                  <span><strong>Save this Order ID</strong> by taking a screenshot or writing it down</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-orange-600">2.</span>
-                  <span>Click <strong>"Track Your Order"</strong> button below</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-orange-600">3.</span>
-                  <span>Enter your <strong>Order ID</strong> and <strong>Email/Phone</strong> used during checkout</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-orange-600">4.</span>
-                  <span>View your order status anytime!</span>
-                </li>
-              </ol>
+            
+            <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+              <p className="text-center text-blue-800 font-medium text-sm mb-3">� How to Track Your Order</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
+                <div className="flex items-start gap-2 bg-white p-3 rounded-lg">
+                  <span className="text-blue-600 font-semibold flex-shrink-0">1.</span>
+                  <span className="text-gray-600">Save this Order ID</span>
+                </div>
+                <div className="flex items-start gap-2 bg-white p-3 rounded-lg">
+                  <span className="text-blue-600 font-semibold flex-shrink-0">2.</span>
+                  <span className="text-gray-600">Click "Track Order" below</span>
+                </div>
+                <div className="flex items-start gap-2 bg-white p-3 rounded-lg">
+                  <span className="text-blue-600 font-semibold flex-shrink-0">3.</span>
+                  <span className="text-gray-600">Enter Order ID & Email/Phone</span>
+                </div>
+                <div className="flex items-start gap-2 bg-white p-3 rounded-lg">
+                  <span className="text-blue-600 font-semibold flex-shrink-0">4.</span>
+                  <span className="text-gray-600">View real-time status</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
