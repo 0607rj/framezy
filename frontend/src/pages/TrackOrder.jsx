@@ -134,11 +134,11 @@ function TrackOrder() {
                 type="text"
                 value={orderId}
                 onChange={(e) => setOrderId(e.target.value)}
-                placeholder="Enter your order ID (e.g., 67123abc456def789ghi)"
-                className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-purple-200 focus:border-purple-500 transition-all outline-none"
+                placeholder="Paste your full Order ID here"
+                className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-purple-200 focus:border-purple-500 transition-all outline-none font-mono text-sm"
               />
               <p className="text-sm text-gray-500 mt-2">
-                You can find your order ID in the order confirmation
+                💡 Copy the full Order ID from your order confirmation page
               </p>
             </div>
 
@@ -241,16 +241,13 @@ function TrackOrder() {
             {/* Order Status Header */}
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 mb-8 border-2 border-purple-200">
               <div className="flex items-center justify-between flex-wrap gap-6 mb-6">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Order ID</p>
-                  <p className="text-2xl font-bold text-gray-900 font-mono">
-                    #{order._id.slice(-8).toUpperCase()}
-                  </p>
-                  {order.trackingId && (
-                    <p className="text-sm text-gray-600 mt-1">
-                      Tracking ID: <span className="font-semibold">{order.trackingId}</span>
+                <div className="flex-1">
+                  <p className="text-sm text-gray-500 mb-2">Your Order ID</p>
+                  <div className="bg-white px-4 py-3 rounded-lg border border-purple-200 inline-block">
+                    <p className="text-lg md:text-xl font-mono text-gray-700 tracking-wide">
+                      {order._id}
                     </p>
-                  )}
+                  </div>
                 </div>
                 <div className={`px-6 py-3 rounded-xl border-2 font-bold text-lg ${getStatusColor(order.orderStatus)}`}>
                   <div className="flex items-center gap-2">
