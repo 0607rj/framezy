@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
+import { useCart } from '../context/CartContext';
 
 function Categories() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   // Fetch featured products from backend
   useEffect(() => {
@@ -184,6 +186,7 @@ function Categories() {
                     </div>
                   </div>
                   <button 
+                    onClick={() => addToCart(product)}
                     disabled={product.stock === 0}
                     className={`w-full ${product.stock > 0 ? 'bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:shadow-2xl hover:scale-105' : 'bg-gray-400 cursor-not-allowed'} text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl font-bold transition-all duration-300 relative overflow-hidden group/btn`}
                   >
