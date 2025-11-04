@@ -33,6 +33,16 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use('/api/orders', orderRoutes);
 app.use('/api/products', productRoutes);
 
+// Health check route for cron job
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK',
+    message: 'Famezy Backend is running!',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
+});
+
 // Test route
 app.get('/api/test', (req, res) => {
   res.json({ message: 'Famezy Backend is running!' });
