@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { FiCheckCircle, FiPackage, FiMail, FiPhone, FiMapPin, FiHome } from 'react-icons/fi';
+import { FiCheckCircle, FiPackage, FiMail, FiPhone, FiMapPin, FiHome, FiTruck } from 'react-icons/fi';
 
 function OrderSuccess() {
   const location = useLocation();
@@ -38,17 +38,66 @@ function OrderSuccess() {
           <p className="text-gray-500">We'll contact you soon to confirm delivery details.</p>
         </div>
 
+        {/* IMPORTANT: Save Your Order ID - Prominent Section */}
+        <div className="bg-gradient-to-r from-yellow-100 via-orange-100 to-red-100 rounded-3xl shadow-2xl p-8 mb-8 border-4 border-orange-400 animate-pulse-slow">
+          <div className="text-center mb-4">
+            <p className="text-2xl font-bold text-orange-800 mb-2">⚠️ IMPORTANT - SAVE THIS ORDER ID ⚠️</p>
+            <p className="text-gray-700 font-semibold">You'll need this to track your order!</p>
+          </div>
+          
+          <div className="bg-white rounded-2xl p-6 border-3 border-orange-300">
+            <p className="text-center text-gray-600 font-semibold mb-3">Your Order ID</p>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <p className="text-4xl md:text-5xl font-bold text-gray-900 font-mono bg-yellow-100 px-8 py-4 rounded-xl border-2 border-yellow-400">
+                {orderId}
+              </p>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(orderId);
+                  alert('Order ID copied to clipboard!');
+                }}
+                className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-4 rounded-xl font-bold transition-all shadow-lg"
+                title="Copy Order ID"
+              >
+                📋 Copy
+              </button>
+            </div>
+            <div className="bg-orange-50 rounded-xl p-4 border-2 border-orange-200">
+              <p className="text-center text-orange-800 font-bold text-lg mb-2">📝 How to Track Your Order:</p>
+              <ol className="text-gray-700 space-y-2 text-left max-w-2xl mx-auto">
+                <li className="flex items-start gap-2">
+                  <span className="font-bold text-orange-600">1.</span>
+                  <span><strong>Save this Order ID</strong> by taking a screenshot or writing it down</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="font-bold text-orange-600">2.</span>
+                  <span>Click <strong>"Track Your Order"</strong> button below</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="font-bold text-orange-600">3.</span>
+                  <span>Enter your <strong>Order ID</strong> and <strong>Email/Phone</strong> used during checkout</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="font-bold text-orange-600">4.</span>
+                  <span>View your order status anytime!</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
         {/* Order Details Card */}
         <div className="bg-white rounded-3xl shadow-2xl p-8 mb-8 border-2 border-purple-100">
-          {/* Order ID */}
+          {/* Order Status */}
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 mb-8 border-2 border-purple-200">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Order ID</p>
-                <p className="text-2xl font-bold text-gray-900 font-mono">#{orderId.slice(-8).toUpperCase()}</p>
+                <p className="text-sm text-gray-600 mb-1">Current Status</p>
+                <p className="text-2xl font-bold text-gray-900">{orderData?.orderStatus || 'Pending'}</p>
               </div>
-              <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold">
-                {orderData?.orderStatus || 'Pending'}
+              <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2">
+                <FiPackage />
+                Processing
               </div>
             </div>
           </div>
@@ -210,6 +259,14 @@ function OrderSuccess() {
             className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-center"
           >
             Continue Shopping
+          </Link>
+          <Link
+            to="/track-order"
+            state={{ prefilledOrderId: orderId }}
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-center flex items-center justify-center gap-2"
+          >
+            <FiTruck className="text-xl" />
+            Track Your Order
           </Link>
           <button
             onClick={() => window.print()}

@@ -11,6 +11,7 @@ import ProductListPage from './pages/ProductListPage'
 import ProductDetail from './pages/ProductDetail'
 import Checkout from './pages/Checkout'
 import OrderSuccess from './pages/OrderSuccess'
+import TrackOrder from './pages/TrackOrder'
 import './App.css'
 
 function AppContent() {
@@ -29,6 +30,7 @@ function AppContent() {
             <Route path="/product/:productId" element={<ProductDetail />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-success" element={<OrderSuccess />} />
+            <Route path="/track-order" element={<TrackOrder />} />
           </Routes>
           <Footer />
         </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { FiShoppingCart, FiMenu, FiX, FiSearch } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { FiShoppingCart, FiMenu, FiX, FiSearch, FiPackage } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 
 function Header() {
@@ -50,6 +51,11 @@ function Header() {
               Products
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
             </a>
+            <Link to="/track-order" className="text-gray-700 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-600 font-medium transition-all duration-300 relative group flex items-center gap-1">
+              <FiPackage className="w-4 h-4" />
+              Track Order
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+            </Link>
             <a href="#about" className="text-gray-700 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-600 font-medium transition-all duration-300 relative group">
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
@@ -94,6 +100,10 @@ function Header() {
               <a href="#home" className="text-gray-700 hover:text-indigo-600 font-medium py-2 transition">Home</a>
               <a href="#categories" className="text-gray-700 hover:text-indigo-600 font-medium py-2 transition">Categories</a>
               <a href="#products" className="text-gray-700 hover:text-indigo-600 font-medium py-2 transition">Products</a>
+              <Link to="/track-order" className="text-gray-700 hover:text-indigo-600 font-medium py-2 transition flex items-center gap-2">
+                <FiPackage className="w-4 h-4" />
+                Track Order
+              </Link>
               <a href="#about" className="text-gray-700 hover:text-indigo-600 font-medium py-2 transition">About</a>
               <a href="#contact" className="text-gray-700 hover:text-indigo-600 font-medium py-2 transition">Contact</a>
             </div>
